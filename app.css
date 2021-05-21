@@ -12,16 +12,15 @@ h1 {
 }
 
 .accordion-body {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: center;    
+    align-items: center; */    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 125px);
+    justify-content: space-between;
+    grid-gap: 5px;
 }
-
-/* .accordion-body::after {
-    content: "";
-    flex: auto;
-} */
 
 .pokemon-card {
     display: flex;
