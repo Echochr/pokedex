@@ -42,7 +42,15 @@ async function createPokemonCard(startID, endID, genNum) {
         const pokemon = await getPokemon(i)
         const pokeID = pokemon.id;
         const pokeName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+
         const pokeTypes = pokemon.types.map(t => t.type.name);
+        if (pokeTypes.length === 1) {
+            typePrimary = pokeTypes[0][0].toUpperCase() + pokeTypes[0].slice(1)
+            typeSecondary = ''
+        } else {
+            typePrimary = pokeTypes[0][0].toUpperCase() + pokeTypes[0].slice(1)
+            typeSecondary = pokeTypes[1][0].toUpperCase() + pokeTypes[1].slice(1)
+        }
 
         const pokemonCard = document.createElement('div');
         const cardColor = colors[pokeTypes[0]]
@@ -52,13 +60,15 @@ async function createPokemonCard(startID, endID, genNum) {
     <img src="${baseUrl}${i}.png" />
     <span class="pokeID">#${pokeID.toString().padStart(3, '0')}</span>
     <span class="pokeName">${pokeName}</span>
-    <span class="pokeTypes">${pokeTypes}</span>
-    `
+    <div class="pokeTypes"><div class="type">${typePrimary}</div>
+    <div class="type">${typeSecondary}</div>
+    </div>
+        `
         accordionBody[genNum].append(pokemonCard);
     }
 }
 
-const generationsIndex = [
+const pokemonIndexNumByGenerations = [
     null,
     { startID: 1, endID: 151 },
     { startID: 152, endID: 251 },
@@ -71,5 +81,5 @@ const generationsIndex = [
 ]
 
 for (let i = 1; i <= 8; i++) {
-    createPokemonCard(generationsIndex[i].startID, generationsIndex[i].endID, i)
+    createPokemonCard(pokemonIndexNumByGenerations[i].startID, pokemonIndexNumByGenerations[i].endID, i)
 }
