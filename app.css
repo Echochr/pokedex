@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 body {
     background: linear-gradient(135deg, rgba(34,156,195,1) 0%, rgba(150,107,193,1) 40%, rgba(253,187,45,1) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100vh;
+    font-family: 'Raleway', sans-serif;
 }
 
 h1 {
-    font-family: 'Roboto';
     font-weight: 700;
     letter-spacing: 1px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgb(200,200,200);
 }
 
-.accordion-body {
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center; */    
+.accordion-body {  
     display: grid;
     grid-template-columns: repeat(auto-fill, 125px);
     justify-content: space-between;
@@ -42,7 +42,7 @@ h1 {
 .pokeID {
     background-color: white;
     font-size: 0.6em;
-    padding: 0 10px;
+    padding: 1px 10px;
     margin-bottom: 0.75em;
     border-radius: 10px;
 }
