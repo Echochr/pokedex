@@ -10,7 +10,7 @@ const eighthGenAccordionBody = document.querySelector('.eighth-gen');
 const accordionBody = [null, firstGenAccordionBody, secondGenAccordionBody, thirdGenAccordionBody, fourthGenAccordionBody,
     fifthGenAccordionBody, sixthGenAccordionBody, seventhGenAccordionBody, eighthGenAccordionBody]
 const baseUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
-const colors = {
+const cardColors = {
     fire: '#FFCBC2',
     water: '#def3fd',
     electric: '#FFEBAD',
@@ -29,6 +29,27 @@ const colors = {
     fighting: '#E4BBB4',
     steel: '#d2d2db',
     normal: '#f5f5f5'
+}
+
+const typeColors = {
+    fire: '#FF4422',
+    water: '#3399FF',
+    electric: '#FFCC33',
+    grass: '#9BCC50',
+    ground: '#DDBB55',
+    rock: '#BBAA66',
+    fairy: '#FFAAFF',
+    poison: '#AA5599',
+    ice: '#77DDFF',
+    bug: '#AABB22',
+    dark: '#775544',
+    ghost: '#6666BB',
+    dragon: '#7766EE',
+    psychic: '#FF5599',
+    flying: '#6699FF',
+    fighting: '#BB5544',
+    steel: '#AAAABB',
+    normal: '#BBBBAA'
 }
 
 const getPokemon = async id => {
@@ -52,18 +73,49 @@ async function createPokemonCard(startID, endID, genNum) {
             typeSecondary = pokeTypes[1][0].toUpperCase() + pokeTypes[1].slice(1)
         }
 
+        //pokemonCard
         const pokemonCard = document.createElement('div');
-        const cardColor = colors[pokeTypes[0]]
         pokemonCard.classList.add('pokemon-card');
-        pokemonCard.style.backgroundColor = cardColor
-        pokemonCard.innerHTML = `
-    <img src="${baseUrl}${i}.png" />
-    <span class="pokeID">#${pokeID.toString().padStart(3, '0')}</span>
-    <span class="pokeName">${pokeName}</span>
-    <div class="pokeTypes"><div class="type">${typePrimary}</div>
-    <div class="type">${typeSecondary}</div>
-    </div>
-        `
+        pokemonCard.style.backgroundColor = cardColors[pokeTypes[0]]
+
+        //pokemonSprite
+        const pokemonSprite = document.createElement('img')
+        pokemonSprite.src = `${baseUrl}${i}.png`
+
+        //pokemonID
+        const pokemonID = document.createElement('span');
+        const paddedID = pokeID.toString().padStart(3, '0')
+        pokemonID.classList.add('pokeID')
+        pokemonID.innerHTML = `#${paddedID}`
+
+        //pokemonName
+        const pokemonName = document.createElement('span');
+        pokemonName.classList.add('pokeName')
+        pokemonName.innerHTML = `${pokeName}`
+        if (pokeName.length >= 12) {
+            pokemonName.style.fontSize = '12px'
+        }
+
+        //pokemonType
+        const pokemonType = document.createElement('div')
+        const typeOne = document.createElement('div')
+        const typeTwo = document.createElement('div')
+        pokemonType.classList.add('pokemonTypes')
+        typeOne.classList.add('type')
+        typeOne.classList.add('typeOne')
+        typeTwo.classList.add('type')
+        typeOne.style.backgroundColor = typeColors[pokeTypes[0]]
+        typeTwo.style.backgroundColor = typeColors[pokeTypes[1]]
+        typeOne.innerHTML = `${typePrimary}`
+        typeTwo.innerHTML = `${typeSecondary}`
+        pokemonType.append(typeOne);
+        pokemonType.append(typeTwo);
+
+        //Filling the pokemonCard & the accordion body
+        pokemonCard.append(pokemonSprite)
+        pokemonCard.append(pokemonID)
+        pokemonCard.append(pokemonName)
+        pokemonCard.append(pokemonType)
         accordionBody[genNum].append(pokemonCard);
     }
 }

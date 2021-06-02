@@ -30,7 +30,7 @@ h1 {
     justify-content: center;
     align-items: center;
     width: 125px;
-    height: 200px;
+    height: 210px;
     background-color: bisque;
     border-radius: 10px;
     margin-right: 0.5rem;
@@ -39,28 +39,35 @@ h1 {
     box-shadow: 3px 3px 8px rgb(200, 200, 200);
 }
 
-.pokeID {
-    background-color: white;
-    font-size: 0.6em;
-    padding: 1px 10px;
-    margin-bottom: 0.75em;
-    border-radius: 10px;
+.pokeID {    
+    font-size: 0.6em;    
+    margin-bottom: 0.2em;    
 }
 
 .pokeName {
     font-weight: 700;
-    text-align: center;    
+    text-align: center;
+    margin-bottom: 0.2em;    
 }
 
-.pokeTypes {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+.pokemonTypes {
+    width: 70%;
+    text-align: center;
     font-size: 0.6rem;
+}
+
+.type {
+    color: white;
+    padding: 0 5px;
+    border-radius: 4px;
 }
 
 .type:empty {
     display: none;
+}
+
+.typeOne {
+    margin-bottom: 0.3em;
 }
 
 footer {
