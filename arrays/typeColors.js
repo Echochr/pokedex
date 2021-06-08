@@ -1,0 +1,20 @@
+const typeColors = {
+    fire: '#FF4422',
+    water: '#3399FF',
+    electric: '#FFCC33',
+    grass: '#9BCC50',
+    ground: '#DDBB55',
+    rock: '#BBAA66',
+    fairy: '#FFAAFF',
+    poison: '#AA5599',
+    ice: '#77DDFF',
+    bug: '#AABB22',
+    dark: '#775544',
+    ghost: '#6666BB',
+    dragon: '#7766EE',
+    psychic: '#FF5599',
+    flying: '#6699FF',
+    fighting: '#BB5544',
+    steel: '#AAAABB',
+    normal: '#BBBBAA'
+}

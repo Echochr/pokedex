@@ -1,0 +1,20 @@
+const cardColors = {
+    fire: '#FFCBC2',
+    water: '#def3fd',
+    electric: '#FFEBAD',
+    grass: '#defde0',
+    ground: '#f4e7da',
+    rock: '#d3c89c',
+    fairy: '#FFD6FF',
+    poison: '#E3C9DE',
+    ice: '#c2f0ff',
+    bug: '#ECF2BA',
+    dark: '#BC9B8A',
+    ghost: '#B9B9DF',
+    dragon: '#ADC3EB',
+    psychic: '#FFC2DA',
+    flying: '#adc9ff',
+    fighting: '#E4BBB4',
+    steel: '#d2d2db',
+    normal: '#f5f5f5'
+}
