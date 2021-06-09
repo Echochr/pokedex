@@ -6,19 +6,24 @@ const getPokemon = async id => {
     return await res.json();
 }
 
+function capitalize(str) {
+    const lower = str.toLowerCase()
+    return str.charAt(0).toUpperCase() + lower.slice(1)
+}
+
 async function createPokemonCard(startID, endID, genNum) {
     for (let i = startID; i <= endID; i++) {
         const pokemon = await getPokemon(i)
         const pokeID = pokemon.id;
-        const pokeName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+        const pokeName = capitalize(pokemon.name)
 
         const pokeTypes = pokemon.types.map(t => t.type.name);
         if (pokeTypes.length === 1) {
-            typePrimary = pokeTypes[0][0].toUpperCase() + pokeTypes[0].slice(1)
+            typePrimary = capitalize(pokeTypes[0])
             typeSecondary = null
         } else {
-            typePrimary = pokeTypes[0][0].toUpperCase() + pokeTypes[0].slice(1)
-            typeSecondary = pokeTypes[1][0].toUpperCase() + pokeTypes[1].slice(1)
+            typePrimary = capitalize(pokeTypes[0])
+            typeSecondary = capitalize(pokeTypes[1])
         }
 
         //pokemonCard
